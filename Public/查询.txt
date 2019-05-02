@@ -1,20 +1,19 @@
-#...
 select *,(select comment.user_id from comment where comment.news_id=news.news_id order by comment_id desc limit 1),(select comment.comment_time from comment where comment.news_id=news.news_id order by comment_id desc limit 1) from news
 
 
-²é¿´ÐÂÎÅ
+ï¿½é¿´ï¿½ï¿½ï¿½ï¿½
 SELECT
-  p.plate_id AS '°å¿éid',
-  p.plate_name AS '°å¿é',
-  news.news_title AS 'ÐÂÎÅ±êÌâ',
-  news.news_grade AS 'ÐÂÎÅµÈ¼¶',
-  news.news_id AS 'ÐÂÎÅid',
-  news.news_browse_count AS 'ä¯ÀÀÈËÊý',
-  news.news_reply_count AS '»Ø¸´ÈËÊý',
-  news.news_time AS '·¢²¼Ê±¼ä',
-  u_n.user_name AS 'ÐÂÎÅ·¢²¼ÈË',
-  (SELECT c.comment_time FROM comment AS c WHERE c.news_id=news.news_id ORDER BY c.comment_id DESC LIMIT 1) AS '×îºóÆÀÂÛÊ±¼ä',
-  (SELECT u_c.user_name FROM comment AS c INNER JOIN user AS u_c ON c.user_id = u_c.user_id WHERE c.news_id=news.news_id ORDER BY c.comment_id DESC LIMIT 1 ) AS '×îºóÆÀÂÛÈË'
+  p.plate_id AS 'ï¿½ï¿½ï¿½id',
+  p.plate_name AS 'ï¿½ï¿½ï¿½',
+  news.news_title AS 'ï¿½ï¿½ï¿½Å±ï¿½ï¿½ï¿½',
+  news.news_grade AS 'ï¿½ï¿½ï¿½ÅµÈ¼ï¿½',
+  news.news_id AS 'ï¿½ï¿½ï¿½ï¿½id',
+  news.news_browse_count AS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+  news.news_reply_count AS 'ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½',
+  news.news_time AS 'ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½',
+  u_n.user_name AS 'ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½',
+  (SELECT c.comment_time FROM comment AS c WHERE c.news_id=news.news_id ORDER BY c.comment_id DESC LIMIT 1) AS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½',
+  (SELECT u_c.user_name FROM comment AS c INNER JOIN user AS u_c ON c.user_id = u_c.user_id WHERE c.news_id=news.news_id ORDER BY c.comment_id DESC LIMIT 1 ) AS 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'
 FROM
   news
 INNER JOIN
