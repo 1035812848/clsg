@@ -1,3 +1,4 @@
+#...
 select *,(select comment.user_id from comment where comment.news_id=news.news_id order by comment_id desc limit 1),(select comment.comment_time from comment where comment.news_id=news.news_id order by comment_id desc limit 1) from news
 
 
