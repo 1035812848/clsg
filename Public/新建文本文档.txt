@@ -1,0 +1,26 @@
+select *,(select comment.user_id from comment where comment.news_id=news.news_id order by comment_id desc limit 1),(select comment.comment_time from comment where comment.news_id=news.news_id order by comment_id desc limit 1) from news
+
+
+查看新闻
+SELECT
+  p.plate_id AS '板块id',
+  p.plate_name AS '板块',
+  news.news_title AS '新闻标题',
+  news.news_grade AS '新闻等级',
+  news.news_id AS '新闻id',
+  news.news_browse_count AS '浏览人数',
+  news.news_reply_count AS '回复人数',
+  news.news_time AS '发布时间',
+  u_n.user_name AS '新闻发布人',
+  (SELECT c.comment_time FROM comment AS c WHERE c.news_id=news.news_id ORDER BY c.comment_id DESC LIMIT 1) AS '最后评论时间',
+  (SELECT u_c.user_name FROM comment AS c INNER JOIN user AS u_c ON c.user_id = u_c.user_id WHERE c.news_id=news.news_id ORDER BY c.comment_id DESC LIMIT 1 ) AS '最后评论人'
+FROM
+  news
+INNER JOIN
+  user AS u_n ON u_n.user_id = news.user_id
+INNER JOIN
+  pn AS p_n ON p_n.news_id = news.news_id
+INNER JOIN
+  plate AS p ON p.plate_id = p_n.plate_id
+WHERE p.plate_id = 1
+ORDER BY news.news_grade DESC LIMIT 0,10;

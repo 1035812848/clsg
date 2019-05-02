@@ -1,0 +1,203 @@
+<!--suppress CssUnknownTarget -->
+<extend name="./Layout/default.html"/>
+<block name="title"><title>{$plate.plate_name}</title></block>
+<block name="style">
+	<style>
+		a{color: #a6937c;}
+		.nav-top{display: flex;margin-top: 58px;height: 80%;overflow: hidden;font-size: 13px;font-family: '宋体';}
+		.nav-top-left{display: flex;flex-direction: column;justify-content: center}
+		.nav-top-right{display: flex;justify-content: flex-end;}
+		.nav-top-left,.nav-top-right{min-width: 50%;display: flex;}
+		.forum-title{font-size: 24px;color: #ffffff;font-family: '楷体';font-weight: bold;display: flex;padding-bottom: 15px;}
+		.forum-title-text{padding-left: 5px;}
+		.nav-top-right-paging{margin-top: 130px;}
+		.paging{display: flex;align-items: center;font-size: 13px;color: #a6937c;}
+		.paging>a{border: 1px solid #a6937c;padding: 4px 6px;margin-left: 2px;font-family: '黑体';}
+		.paging>a:hover{color: #313131;background-color: #a6937c;}
+		.index-page{color: #313131;background-color: #a6937c;}
+		.max{height: 45px;line-height: 45px;width: 150px;font-size: 16px;}
+		.news-div{color: #a6937c;font-size: 14px;background-color: #222222;margin-top: 15px;}
+		.news-nav-title{padding: 0 10px;height: 60px;background: url('/Public/img/clsg/news-nav.png') no-repeat center;background-size: 100% 100%;}
+		.news-nav-title>div{padding-top: 20px;}
+		.news-nav-title>div>div:not(:last-child){border-right: 1.5px solid #7e6b5a}
+		.news-nav{display: flex;}
+		.news-nav>div:nth-child(1){flex-basis: 37%;}
+		.news-nav>div:nth-child(2){flex-basis: 15%;}
+		.news-nav>div:nth-child(3){flex-basis: 15%;}
+		.news-nav>div:nth-child(4){flex-basis: 15%;}
+		.news-nav>div:nth-child(5){flex-basis: 18%;}
+		.news-nav>div{text-align: center;}
+		.news{overflow: hidden;padding: 0 10px;}
+		.news>li{height: 50px;border-bottom: 1px dashed #000000;font-size: 12px;overflow: hidden;}
+		.news>li>div{height: 100%;border-bottom: 1px dashed #444444;box-sizing: border-box;display: flex;align-items: center;}
+		.new-title{display: flex;align-items: center;}
+		.grade-3{color: red;}
+		.grade-2{color: yellow;}
+		.new-title:hover{color: yellow;}
+		.new-title img{width: 15px;}
+		.news-footer{margin-top: 40px;height: 70px;padding: 0 50px;display: flex;justify-content: space-between;align-items: center;}
+		.name-time{display: flex;flex-direction: column;}
+		.reply{color: #59493f;font-size: 10px;}
+		.card-form-div{width: 100%;padding: 0 20px;}
+		.card-input-size{height: 27px;width: 350px;}
+		.card-input-state{color: #a6937c;font-size: 12px;}
+		.textarea-btn{margin-top: 30px;margin-bottom: 10px;}
+		#cardFormTextarea{width: 100%;resize:none;height: 200px;font-size: 15px;}
+	</style>
+</block>
+<block name="nav-top">
+	<div class="nav-top half">
+		<div class="nav-top-left">
+			<div class="forum-title">
+				<img src="/Public/img/clsg/zxft.png"/>
+				<span class="forum-title-text">{$plate.plate_name}</span>
+			</div>
+			<a href="javascript:;" data-action="card" class="btn max go">发新帖</a>
+		</div>
+		<div class="nav-top-right">
+			<div class="nav-top-right-paging">
+				<div class="paging">
+					<a href="javascript:;">
+						<img src="/Public/img/clsg/paging-left.png"/>
+						<span>返回首页</span>
+					</a>
+					<a href="javascript:;" class="index-page">1</a>
+					<a href="javascript:;">2</a>
+					<a href="javascript:;">3</a>
+					<a href="javascript:;">4</a>
+					<a href="javascript:;">5</a>
+					<a href="javascript:;">6</a>
+					<a href="javascript:;">7</a>
+					<a href="javascript:;">8</a>
+					<a href="javascript:;">
+						<span>下一页</span>
+						<img src="/Public/img/clsg/paging-right.png"/>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</block>
+<block name="position">
+	<div class="position"><span>您所在的位置：</span>
+		<a href="/Clsg/Index/">《光荣三国志》官方论坛</a>
+		<span>></span>
+		<a href="/Clsg/Index/">{$plate.region_name}</a>
+		<span>></span>
+		<a href="javascript:;">{$plate.plate_name}</a>
+	</div>
+</block>
+<block name="reg-login">
+	<a href="javascript:;" class="go" data-action="reg">注册</a>&nbsp;<strong>|</strong>&nbsp;<a href="javascript:;" class="go" data-action="login">登录</a>
+</block>
+<block name="elastic-frame">
+	<div class="pop-frame " id="card">
+		<a href="javascript:;" class="close"></a>
+		<div class="pop-title">发表帖子</div>
+		<div class="pop-frame-div">
+			<div class="card-form-div">
+				<form action="">
+					<div class="form-row">
+						<span class="form-row-name">主&ensp;&ensp;&ensp;题：</span>
+						<input class="form-row-input card-input-size" maxlength="80" type="text">
+						<span class="form-row-state card-input-state">还可以输入<span id="numberText">80</span>个字符</span>
+					</div>
+					<div class="form-row">
+						<span class="form-row-name"></span>
+						<div style="flex: 1;">
+							<textarea class="form-row-input" name="" id="cardFormTextarea"></textarea>
+						</div>
+					</div>
+				</form>
+				<div class="form-row form-btn">
+					<button type="button" class="btn textarea-btn">提&ensp;&ensp;交</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</block>
+
+<block name="body">
+	<div class="news-div">
+		<div class="news-nav-title">
+			<div class="news-nav">
+				<div>标题</div>
+				<div>作者</div>
+				<div>回复</div>
+				<div>查看</div>
+				<div>最后发表</div>
+			</div>
+		</div>
+		<ul class="news">
+			<notempty name="news">
+				<foreach name="news" item="new">
+					<li>
+						<div class="news-nav">
+							<div>
+								<a  href="/Clsg/Index/news?plateId={$plate.plate_id}&newsId={$new.news_id}" class="new-title">
+									<img src="/Public/img/clsg/zxft.png"/>
+									<div>
+										<span class="grade-{$new['news_grade']}">【{$new['news_grade'] == 3 ? '置顶' : ($new['news_grade'] == 2 ? '置顶' : '交流')}】</span>
+										<span>{$new.news_title}</span>
+									</div>
+								</a>
+							</div>
+							<div class="name-time"><span>{$new.plate_name}</span><span class="reply">{$new.news_time}</span></div>
+							<div><span>{$new.news_reply_count|default = "0"}</span></div>
+							<div><span>{$new.news_browse_count|default = "0"}</span></div>
+							<div class="name-time"><span>{$new.lately_name|default = "暂无"}</span><span class="reply">{$new.lately_time}</span></div>
+						</div>
+					</li>
+				</foreach>
+				<else/>
+				<li>
+					<div class="news-nav">
+						<span>快去发布帖子吧！</span>
+					</div>
+				</li>
+			</notempty>
+
+		</ul>
+		<div class="news-footer">
+			<a href="javascript:;" data-action="card" class="btn max go">发新帖</a>
+			<div class="paging">
+				<a href="javascript:;">
+					<img src="/Public/img/clsg/paging-left.png"/>
+					<span>返回首页</span>
+				</a>
+				<a href="javascript:;" class="index-page">1</a>
+				<a href="javascript:;">2</a>
+				<a href="javascript:;">3</a>
+				<a href="javascript:;">4</a>
+				<a href="javascript:;">5</a>
+				<a href="javascript:;">6</a>
+				<a href="javascript:;">7</a>
+				<a href="javascript:;">8</a>
+				<a href="?plateId={$plateId}&page={$page+1}">
+					<span>下一页</span>
+					<img src="/Public/img/clsg/paging-right.png"/>
+				</a>
+			</div>
+		</div>
+	</div>
+</block>
+
+<block name="script">
+<script>
+	var conspicuous = null;
+	clearInterval(conspicuous);
+	var numberText = $("#numberText");
+	$(".card-input-size").on("input propertychange",function(){
+		numberText.text(80 - ($(this).val().length));
+	});
+	var grade3 = $(".grade-3");
+	var indexGrade3 = 0;
+	var color = ['red','yellow','blue'];
+	conspicuous = setInterval(function () {
+		grade3.css("color",color[indexGrade3]);
+		indexGrade3++;
+		indexGrade3 = indexGrade3 > 2 ? 0 : indexGrade3;
+	},500);
+
+</script>
+</block>

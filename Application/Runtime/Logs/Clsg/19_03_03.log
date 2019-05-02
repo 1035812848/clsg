@@ -1,0 +1,523 @@
+[ 2019-03-03T12:17:49+08:00 ] 127.0.0.1 /Clsg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000590s ]
+
+[ 2019-03-03T12:17:53+08:00 ] 127.0.0.1 /Clsg/Index/forum/?plateId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000355s ]
+
+[ 2019-03-03T12:18:18+08:00 ] 127.0.0.1 /Clsg/Index/forum/?plateId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000323s ]
+
+[ 2019-03-03T12:18:20+08:00 ] 127.0.0.1 /Clsg/Index/news?plateId=1&newsId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000192s ]
+
+[ 2019-03-03T12:18:29+08:00 ] 127.0.0.1 /Clsg/Index/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000362s ]
+
+[ 2019-03-03T12:18:31+08:00 ] 127.0.0.1 /Clsg/Index/forum/?plateId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000504s ]
+
+[ 2019-03-03T12:18:33+08:00 ] 127.0.0.1 /Clsg/Index/news?plateId=1&newsId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000354s ]
+
+[ 2019-03-03T12:18:38+08:00 ] 127.0.0.1 /Clsg/Index/news?plateId=1&newsId=5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000443s ]
+
+[ 2019-03-03T12:18:41+08:00 ] 127.0.0.1 /Clsg/Index/news?plateId=1&newsId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000288s ]
+
+[ 2019-03-03T12:18:46+08:00 ] 127.0.0.1 /Clsg/Index/forum?plateId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000305s ]
+
+[ 2019-03-03T12:18:48+08:00 ] 127.0.0.1 /Clsg/Index/news?plateId=1&newsId=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000397s ]
+
+[ 2019-03-03T12:18:52+08:00 ] 127.0.0.1 /Clsg/Index/news?plateId=1&newsId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000442s ]
+
+[ 2019-03-03T12:42:34+08:00 ] 127.0.0.1 /Clsg/Index/news?plateId=1&newsId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000454s ]
+
+[ 2019-03-03T12:42:36+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000283s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000473s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000528s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0063s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 4,4   [ RunTime:0.0080s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0004s ]
+
+[ 2019-03-03T12:42:38+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000247s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000394s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000434s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0072s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 8,4   [ RunTime:0.0073s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0003s ]
+
+[ 2019-03-03T12:42:40+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000308s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000385s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000422s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0049s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 12,4   [ RunTime:0.0583s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0003s ]
+
+[ 2019-03-03T12:42:40+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000275s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000253s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000273s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0034s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 16,4   [ RunTime:0.0035s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0003s ]
+
+[ 2019-03-03T12:42:43+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000245s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000294s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0079s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 12,4   [ RunTime:0.0077s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0003s ]
+
+[ 2019-03-03T12:42:46+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000655s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000710s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0073s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 8,4   [ RunTime:0.0074s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0003s ]
+
+[ 2019-03-03T12:42:47+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000332s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000325s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0489s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 12,4   [ RunTime:0.0065s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0003s ]
+
+[ 2019-03-03T12:42:48+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000743s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000318s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000349s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0068s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 16,4   [ RunTime:0.0077s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0004s ]
+
+[ 2019-03-03T12:42:49+08:00 ] 127.0.0.1 /Clsg/Index/news?news=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000228s ]
+
+[ 2019-03-03T12:42:54+08:00 ] 127.0.0.1 /Clsg/Index/news?news=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000356s ]
+
+[ 2019-03-03T12:42:58+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000392s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000662s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000726s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0056s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 5,5   [ RunTime:0.0073s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0003s ]
+
+[ 2019-03-03T12:42:59+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000192s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000238s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000259s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0070s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 10,5   [ RunTime:0.0074s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0003s ]
+
+[ 2019-03-03T12:42:59+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000317s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000382s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000417s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0039s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 15,5   [ RunTime:0.0039s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0003s ]
+
+[ 2019-03-03T12:43:04+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000192s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000240s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000261s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0062s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 10,5   [ RunTime:0.0082s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0004s ]
+
+[ 2019-03-03T12:43:08+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000049s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000444s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000329s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000353s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0072s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 5,5   [ RunTime:0.0072s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0004s ]
+
+[ 2019-03-03T12:43:10+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000203s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000274s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000294s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0081s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 10,5   [ RunTime:0.0072s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0004s ]
+
+[ 2019-03-03T12:43:10+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000343s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000500s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000542s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0047s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 15,5   [ RunTime:0.0049s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0003s ]
+
+[ 2019-03-03T12:43:12+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000590s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000384s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000418s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0071s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 10,5   [ RunTime:0.0083s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0003s ]
+
+[ 2019-03-03T12:43:22+08:00 ] 127.0.0.1 /Clsg/Index/news?news=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000344s ]
+
+[ 2019-03-03T12:43:23+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000297s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000386s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000421s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0065s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 4,4   [ RunTime:0.0068s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0002s ]
+
+[ 2019-03-03T12:43:23+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000223s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000302s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0046s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 8,4   [ RunTime:0.0051s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0005s ]
+
+[ 2019-03-03T12:43:24+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000305s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000333s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0064s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 12,4   [ RunTime:0.0083s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0004s ]
+
+[ 2019-03-03T12:43:28+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000326s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000727s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000785s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0075s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 16,4   [ RunTime:0.0085s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0003s ]
+
+[ 2019-03-03T12:43:30+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000251s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000271s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0076s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 12,4   [ RunTime:0.0093s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0003s ]
+
+[ 2019-03-03T12:43:39+08:00 ] 127.0.0.1 /Clsg/Index/news?news=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000539s ]
+
+[ 2019-03-03T12:43:45+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000224s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000259s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000281s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0081s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 10,10   [ RunTime:0.0073s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0003s ]
+
+[ 2019-03-03T12:44:15+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000230s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000352s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000388s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0081s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 0,10   [ RunTime:0.0078s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0002s ]
+
+[ 2019-03-03T12:44:24+08:00 ] 127.0.0.1 /Clsg/Ajax/comment
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000281s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000251s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000272s ]
+SQL: SHOW COLUMNS FROM `comment` [ RunTime:0.0070s ]
+SQL: SELECT u.user_name,u.user_id,u.user_grade,comment.comment_id,comment.comment_time,ci.commentInfo_text AS cit FROM `comment` 
+			INNER JOIN commentinfo AS ci ON ci.comment_id = comment.comment_id
+		 
+			INNER JOIN user AS u ON u.user_id = comment.user_id
+		  WHERE comment.news_id = '1' ORDER BY 
+			comment.comment_id DESC
+		 LIMIT 10,10   [ RunTime:0.0085s ]
+SQL: SELECT * FROM `comment` WHERE `news_id` = 1  [ RunTime:0.0005s ]
+
+[ 2019-03-03T12:44:26+08:00 ] 127.0.0.1 /Clsg/Index/news?news=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000529s ]
+
+[ 2019-03-03T12:44:29+08:00 ] 127.0.0.1 /Clsg/Index/forum?plateId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000361s ]
+
+[ 2019-03-03T12:44:33+08:00 ] 127.0.0.1 /Clsg/Index/news?plateId=1&newsId=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000457s ]
+
+[ 2019-03-03T12:44:36+08:00 ] 127.0.0.1 /Clsg/Index/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000487s ]
+
+[ 2019-03-03T12:44:39+08:00 ] 127.0.0.1 /Clsg/Index/forum/?plateId=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000349s ]
+
+[ 2019-03-03T12:44:40+08:00 ] 127.0.0.1 /Clsg/Index/news?plateId=1&newsId=5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000386s ]
+

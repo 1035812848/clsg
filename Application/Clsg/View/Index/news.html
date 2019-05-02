@@ -1,0 +1,358 @@
+<!--suppress CssUnknownTarget -->
+<extend name="./Layout/default.html"/>
+<block name="title"><title>{$news.news_title}</title></block>
+<block name="style">
+	<style>
+		a{color: #a6937c;}
+		.grade-3{color: red;}
+		.grade-2{color: yellow;}
+		.nav-top{display: flex;margin-top: 58px;height: 80%;overflow: hidden;font-size: 13px;font-family: '宋体';}
+		.nav-top-left{display: flex;flex-direction: column;justify-content: center}
+		.nav-top-right{display: flex;justify-content: flex-end;}
+		.nav-top-left,.nav-top-right{min-width: 50%;display: flex;}
+		.forum-title{font-size: 24px;color: #ffffff;font-family: '楷体';font-weight: bold;display: flex;padding-bottom: 15px;}
+		.forum-title-text{padding-left: 5px;}
+		.nav-top-right-paging{margin-top: 130px;}
+		.paging{display: flex;align-items: center;font-size: 13px;color: #a6937c;}
+		.paging>a{border: 1px solid #a6937c;padding: 4px 6px;margin-left: 2px;font-family: '黑体';}
+		.paging>a:hover{color: #313131;background-color: #a6937c;}
+		.index-page{color: #313131;background-color: #a6937c;}
+		.max{height: 45px;line-height: 45px;width: 150px;font-size: 16px;}
+		.reply-div{margin-top: 15px;}
+		.reply{display: flex;min-height: 450px;}
+		.reply-left{min-width: 200px;flex-basis: 20%;background-color: #2d2d2d;border-bottom: 6px solid #484848;}
+		.reply-right{flex: 1;background-color: #222222;border-bottom: 6px solid #323232;display: flex;flex-direction: column;}
+		.user-info{width: 120px;margin: 30px auto;}
+		.portrait-box{width: 120px;height: 120px;background: url('/Public/img/clsg/portrait-box.png') no-repeat center;background-size: 100% 100%;display: flex;justify-content: center;align-items: center;}
+		.portrait-img{width: 98px;height: 98px;}
+		.user-name{color: #959595;font-size: 14px;justify-content: center;display: flex;margin-top: 10px;}
+		.user-face{color: #7e6b5a;font-size: 12px;justify-content: center;display: flex;margin-top: 5px;}
+		.blank-div{width: 95%;margin: 0 auto;display: flex;flex-direction: column;}
+		.reply-header-div{border-bottom: 1px dashed #070707;line-height: 30px;height: 30px;}
+		.reply-header{font-size: 12px;color: #7e6b5a;border-bottom: 1px dashed #3d3d3d;display: flex;justify-content: space-between;padding: 0 20px;box-sizing: border-box;height: 100%;}
+		.reply-body{padding: 30px 20px;display: flex;flex-direction: column;flex: 1;}
+		.reply-body-text{flex: 1;color: #7e6b5a;line-height: 20px;font-size: 13px;}
+		.reply-body-foot{flex-basis: 20px;color: #7e6b5a;font-size: 13px;}
+		.reply-footer{display: flex;height: 40px;}
+		.reply-footer-left{background-color: #484848;min-width: 200px;flex-basis: 20%;}
+		.reply-footer-right{background-color: #323232;flex: 1;}
+		.reply-footer-paging{justify-content: flex-end;margin-top: 5px;}
+		.reply-form-div{width: 100%;padding: 0 20px;}
+		.textarea-btn{margin-top: 30px;margin-bottom: 10px;}
+		#replyFormTextarea{width: 100%;resize:none;height: 200px;font-size: 15px;}
+	</style>
+</block>
+<block name="nav-top">
+	<div class="nav-top half">
+		<div class="nav-top-left">
+			<div class="forum-title">
+				<img src="/Public/img/clsg/zxft.png"/>
+				<span class="forum-title-text">{$news.news_title}</span>
+			</div>
+			<a href="javascript:;" data-action="reply" class="btn max go" onclick='hf("{$news.news_id}",0)'>回复</a>
+		</div>
+		<div class="nav-top-right">
+			<div class="nav-top-right-paging">
+				<!--<div class="paging">
+					<a href="javascript:;" class="prev-page" data-plateid="{$plate.plate_id}" data-newsid="{$news.news_id}">
+						<img src="/Public/img/clsg/paging-left.png"/>
+						<span>返回列表</span>
+					</a>
+					<for start="0" end="$pageCount" name="i">
+						<a href="javascript:;" class="{$i == 0 ? 'Index-page' : ''} pages">{$i+1}</a>
+					</for>
+					<a href="javascript:;" class="next-page" data-newsid="{$news.news_id}" data-pagesize="{$pageSize}" data-pagemax="{$pageMax}" data-pagecount="{$pageCount}">
+						<span>下一页</span>
+						<img src="/Public/img/clsg/paging-right.png"/>
+					</a>
+
+				</div>-->
+			</div>
+		</div>
+	</div>
+</block>
+<block name="position">
+	<div class="position"><span>您所在的位置：</span>
+		<a href="/Clsg/Index/">《光荣三国志》官方论坛</a>
+		<span>></span>
+		<a href="/Clsg/Index/" title="{$plate.region_id}">{$plate.region_name}</a>
+		<span>></span>
+		<a href="/Clsg/Index/forum?plateId={$plate.plate_id}" title="{$plate.plate_id}">{$plate.plate_name}</a>
+		<span>></span>
+		<a href="javascript:;">
+			<span class="grade-{$news['news_grade']}">【{$news['news_grade'] == 3 ? '置顶' : ($news['news_grade'] == 2 ? '置顶' : '交流')}】</span>
+			{$news.news_title}
+		</a>
+	</div>
+</block>
+<block name="reg-login">
+	<a href="javascript:;" class="go" data-action="reg">注册</a>&nbsp;<strong>|</strong>&nbsp;<a href="javascript:;" class="go"  data-action="login">登录</a>
+</block>
+
+<block name="elastic-frame">
+	<div class="pop-frame " id="reply">
+		<a href="javascript:;" class="close"></a>
+		<div class="pop-title">回&ensp;&ensp;复<span id="uname"></span></div>
+		<div class="pop-frame-div">
+			<div class="reply-form-div">
+				<div class="form-row">
+					<div style="flex: 1;">
+						<textarea class="form-row-input" name="" id="replyFormTextarea"></textarea>
+					</div>
+				</div>
+				<div class="form-row form-btn">
+					<button type="button" class="btn textarea-btn" data-pid="0" data-nid="0" data-cid="0">提&ensp;&ensp;交</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</block>
+
+<block name="body">
+	<div class="reply-div">
+
+		<foreach name="comments" item="comment" key="key">
+			<if condition="$comment.p_id eq 0 ">
+
+				<div class="reply">
+					<div class="reply-left">
+						<div class="user-info">
+							<a href="javascript:;" title="{$comment.user_id}" class="portrait-box">
+								<img class="portrait-img" src="/Public/img/clsg/official-portrait.jpg"/>
+							</a>
+							<span class="user-name release-name">{$comment['user_name']}</span>
+							<span class="user-face" title="{$comment['user_grade']}">[{$comment['user_grade'] == 3 ? "系统管理员" : ($comment['user_grade'] == 2 ? '管理员' : '普通用户')}]</span>
+						</div>
+					</div>
+					<div class="reply-right">
+						<div class="blank-div">
+							<div class="reply-header-div">
+								<div class="reply-header">
+									<span>发表于&ensp;<span class="release-time">{$comment['comment_time']}</span></span>
+									<span class="floor">{$key+1}楼</span>
+								</div>
+							</div>
+						</div>
+						<div class="blank-div" style=";flex: 1;">
+							<div class="reply-body">
+								<div class="reply-body-text">{$comment.cit}</div>
+								<span class="reply-body-foot">本主题由&ensp;<span class="release-name">{$comment['user_name']}</span>&ensp;于&ensp;<span class="release-time">{$comment['comment_time']}</span>&ensp;<a href="javascript:;" class="del-reply go"  data-action="reply" onclick='hf("{$news.news_id}","{$comment.comment_id}","{$comment.comment_id}","{$comment.user_name}")' title="{$comment.comment_id}">回复</a> </span>
+								<volist name="comments" id="com">
+									<volist name="comments" id="co" key="k">
+										<if condition="$com.c_id eq $comment.comment_id ">
+											<if condition="$co.comment_id eq $com.p_id ">
+												<span class="reply-body-foot" style="padding-top: 5px;">{$com.user_name}&ensp;回复 ' <span class="release-name" style="color: #1affd0;">{$co['user_name']}</span> '：&ensp;{$com.cit}&ensp;<span class="release-time" style="font-size: 10px;color: #214413">发表于&ensp;{$com['comment_time']}</span>&ensp;<a href="javascript:;" class="del-reply go showhide" style="display: none;padding-left: 20px;" data-action="reply" onclick='hf("{$news.news_id}","{$com.comment_id}","{$comment.comment_id}","{$com.user_name}")'>回复</a> </span>
+											</if>
+										</if>
+									</volist>
+								</volist>
+							</div>
+						</div>
+					</div>
+				</div>
+			</if>
+		</foreach>
+
+		<empty name="comments">
+			<div class="reply">
+				<div class="reply-left">
+					<div class="user-info"></div>
+				</div>
+				<div class="reply-right">
+					<div class="blank-div">
+						<div class="reply-header-div">
+							<div class="reply-header"></div>
+						</div>
+					</div>
+					<div class="blank-div" style=";flex: 1;">
+						<div class="reply-body">
+							<div class="reply-body-head">还没有评论哦！快去占沙发！</div>
+							<span class="reply-body-foot"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</empty>
+
+
+	</div>
+	<!--分页-->
+	<div class="reply-footer">
+		<div class="reply-footer-left"></div>
+		<div class="reply-footer-right">
+			<div class="blank-div">
+				<div class="paging reply-footer-paging">
+					<a href="javascript:;" class="prev-page" data-plateid="{$plate.plate_id}" data-newsid="{$news.news_id}">
+						<img src="/Public/img/clsg/paging-left.png"/>
+						<span>返回列表</span>
+					</a>
+					<for start="0" end="$pageCount" name="i">
+						<a href="javascript:;" class="{$i == 0 ? 'index-page' : ''} pages">{$i+1}</a>
+					</for>
+					<a href="javascript:;" class="next-page" data-newsid="{$news.news_id}" data-pagesize="{$pageSize}" data-pagemax="{$pageMax}" data-pagecount="{$pageCount}">
+						<span>下一页</span>
+						<img src="/Public/img/clsg/paging-right.png"/>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</block>
+<block name="script">
+	<script>
+		var conspicuous 	= null;
+		clearInterval(conspicuous);									//关闭置顶效果
+		var grade3 			= $(".grade-3");
+		var indexGrade3 	= 0;
+		var color 			= ['red','yellow','blue'];
+		var replyDiv 		= $(".reply-div");						//回复大DIV
+		var copy 			= $(".reply").eq(0).clone(true);       	//克隆的回复模板
+		var nextPage 		= $(".next-page");
+		var prevPage 		= $(".prev-page");
+		var reply = $("#reply"); //回复框
+		var tbtn = $(".textarea-btn");  //提交评论
+		var replyFormTextarea = $("#replyFormTextarea");  //评论内容
+
+		/*回复评论*/
+		function hf(nid,pid,cid,uname){
+			replyFormTextarea.val('');
+			reply.find("#uname").html(uname != null ? ("&ensp;&ensp;@"+uname) : '').css("font-size","16px");
+			tbtn.data("pid",pid);
+			tbtn.data("cid",cid);
+			tbtn.data("nid",nid);
+		}
+
+		/*显示恢复*/
+		$(".reply-body-foot").hover(function () {
+			$(this).find(".showhide").show();
+		},function () {
+			$(this).find(".showhide").hide();
+		});
+
+		/*提交评论*/
+		tbtn.click(function () {
+			$.post("/Clsg/Ajax/addComment",{news_id:tbtn.data("nid"),p_id:tbtn.data("pid"),c_id:tbtn.data("cid"),commentInfo_text:replyFormTextarea.val()},function (resp) {
+				if (resp.status) {
+					location = location;
+				} else {
+					alert("服务器连接失败！");
+				}
+			});
+		});
+
+		/*置顶效果*/
+		conspicuous = setInterval(function () {
+			grade3.css("color",color[indexGrade3]);
+			indexGrade3++;
+			indexGrade3 = indexGrade3 > 2 ? 0 : indexGrade3;
+		},500);
+
+		/*下一页效果*/
+		nextPage.click(function () {
+			var text =  $(this).children("span").text();
+			text == "返回首页" ? location = "/Clsg/Index/news?news="+prevPage.data("plateid") : null;
+			var index = nextPage.prevAll(".index-page");
+			if (index.text() <= nextPage.data("pagemax")-1) {
+				if (index.index() +1 == nextPage.index()) {
+					pageChange(true,true,false);
+				} else {
+					pageChange(true,false,true);
+				}
+			}
+		});
+
+		/*上一页效果*/
+		prevPage.click(function () {
+			var text =  $(this).children("span").text();
+			text == "返回列表" ? location = "/Clsg/Index/forum?plateId="+prevPage.data("plateid") : null;
+			var index = prevPage.nextAll(".index-page");
+			if (index.text() > 1) {
+				var arr = [];
+				if (index.index() -1 == prevPage.index()) {
+					pageChange(false,true,false);
+				} else {
+					pageChange(false,false,true);
+				}
+			}
+		});
+		
+		/*点击第几页刷新*/
+		$(".pages").click(function () {
+			var index = $(this);
+			$.ajax({
+				url: "/Clsg/Ajax/comment",
+				data: 'page=' + $(this).text() + "&newsid=" + nextPage.data("newsid") + "&pagesize=" + nextPage.data("pagesize"),
+				type: 'post',
+				dataType: 'json',
+				success: function (resp) {
+					prevPage.nextAll(".index-page").removeClass("index-page");
+					index.addClass("index-page");
+					//prevPage.children("span").text(Index.text() == 1 ? "返回列表" : "上一页");
+					reply(resp);
+				},
+				error: function () {
+
+				}
+			});
+		});
+
+		/*切换效果*/
+		/*bool true 上一页 loop true 循环 pn true 上页*/
+		function switchText(bool,loop,pn) {
+			var index = prevPage.nextAll(".index-page");
+			if (pn) {
+				bool ? index.next().addClass("index-page") : index.prev().addClass("index-page");
+				index.removeClass("index-page");
+			}
+			var pages = $(".pages");
+			if (loop) {
+				for (var i=0;i<pages.length;i++) {
+					pages.eq(i).text(parseInt(pages.eq(i).text()) + (bool ? + 1 : -1));
+				}
+			}
+
+		}
+
+
+		/*翻页ajax*/
+		function pageChange(bool,loop,pn) {
+			$.ajax({
+				url:"/Clsg/Ajax/comment",
+				data:'page='+(parseInt($(".index-page").text()) + (bool ? +1 : -1)) +"&newsid="+nextPage.data("newsid")+"&pagesize="+nextPage.data("pagesize"),
+				type:'post',
+				dataType:'json',
+				success:function (resp) {
+					switchText(bool,loop,pn);	//翻页效果
+					reply(resp);
+				},
+				error:function () {
+					alert("连接服务器失败！");
+				}
+			});
+		}
+
+		/*回复板块替换*/
+		function reply(resp) {
+			index = prevPage.nextAll(".index-page");
+			prevPage.children("span").text(	index.text() > 1 ? "上一页" : "返回列表");
+			nextPage.children("span").text(	nextPage.data("pagemax") != index.text() ? "下一页" : "返回首页");
+			var reply 		= 		copy;
+			$(".reply").remove();
+			var page  		= 		$(".index-page").text();
+			var pageSize	= 		nextPage.data("pagesize");
+			nextPage.attr("data-pagecount",resp['count']);
+			for (var i=0;i<resp['cs'].length;i++) {
+				reply.find(".portrait-box"		).attr("title",resp['cs'][i].user_id);
+				reply.find(".release-name"		).text(resp['cs'][i].user_name);
+				reply.find(".user-face"	  		).text("["+(resp['cs'][i].user_grade == 3 ? '系统管理员' : (resp.cs[0].user_grade == 2 ? '管理员' : '普通用户'))+"]");
+				reply.find(".release-time"		).text(resp['cs'][i].comment_time);
+				reply.find(".floor"		  		).text((((page - 1) * pageSize) + (i + 1)) + "楼");
+				reply.find(".reply-body-text"	).text(resp['cs'][i].cit);
+				reply.find(".del-reply"			).attr("title",resp['cs'][i].comment_id);
+				copy = reply.clone(true);
+				copy.appendTo(replyDiv);
+			}
+		}
+	</script>
+</block>

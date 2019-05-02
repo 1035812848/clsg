@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="icon" href="/Public/img/clsg/logo.png"  type=”image/x-icon”>
+	<block name="title"></block>
+	<!--suppress CssUnknownTarget -->
+	<style>
+		body,html,ul,li{border: 0;margin: 0;padding: 0;}
+		li{list-style: none;}
+		a{text-decoration: none;}
+		.position{color:#a6937c;font-size: 13px;font-family: '宋体';}
+		.position>a:last-child{color: #fff100;}
+		.max-div{min-width: 700px;position: relative;background: url('/Public/img/clsg/bg.png') no-repeat top;}
+		.half{width: 60%;margin: auto;min-width: 700px;}
+		.clear{clear: both}
+		.header{position: relative;}
+		.header .header-left{float: left;text-align: center;padding-top: 50px;}
+		.header .header-left>a>img{margin: 15px 0;}
+		.header .header-right{float: left;margin-top: 110px;}
+		.nav-bg{background: url('/Public/img/clsg/nav.png') no-repeat bottom;height: 300px;overflow: hidden;}
+		.nav-bottom{font-size: 14px;color: #7e6b5a;background: url('/Public/img/clsg/bottom-arrow.png') #131313 no-repeat top;}
+		.nav-bottom .nav-bottom-left{line-height: 40px;height: 40px;float: left;}
+		.nav-bottom .nav-bottom-right{line-height: 40px;height: 40px;float: right;}
+		.nav-bottom .nav-bottom-right>a{color: #7e6b5a;}
+		.body{background-color: #1b1b1b;padding-bottom: 50px;}
+		.footer{height: 230px;background-color: #313131;text-align: center;}
+		.footer>div{display: inline-block;color: #535353;font-size: 16px;margin-top: 80px;}
+		.btn{background: url('/Public/img/clsg/btn.png') no-repeat center;background-size: 100% 100%;text-align: center;font-family: '楷体';color: #313131;font-weight: bold;}
+		/*弹出框*/
+		.pop{display: none;}
+		.pop-frame{position: fixed;top: 20%;left: calc(50% - 300px);border: 8px solid #535353;width: 600px;background-color: #1b1b1b;z-index: 10;}
+		.close{width: 35px;height: 35px;background: url('/Public/img/clsg/close.png') no-repeat #535353 6px 2px;background-size: 75% 75%;position: absolute;right: 0px;top:0px;}
+		.pop-title{color: #484848;font-size: 22px;padding: 15px 15px;}
+		.pop-frame-div{display: flex;}
+		.pop-frame-left{flex-basis: 65%;padding: 0 15px;}
+		.pop-frame-right{flex-basis: 35%;padding: 0 15px;display: flex;flex-direction: column;justify-content: center;}
+		.pop-frame-right .message{color: #535353;font-size: 14px;margin-top: -80px;}
+		.a-underline{text-decoration: underline;color: red;font-size: 14px;}
+		.pop-frame-right .message a{color: #00ffff;}
+		.form{width: 100%;border-right: 2px solid #535353;padding-bottom: 40px;}
+		.form-row{display: flex;align-items: center;margin-bottom: 10px;}
+		.form-row-name{color: #a6937c;flex-basis: 80px;font-size: 14px;}
+		.form-row-input{background-color: #313131;border: 0;color: #a6937c;}
+		.form-row-input-size{height: 28px;flex-basis: 170px;padding: 0 10px;}
+		.form-row-state{color: red;padding-left: 10px;font-size: 14px;}
+		.form-btn{display: flex;justify-content: center;margin-top: -25px;}
+		.form-btn .btn{line-height: 50px;width: 170px;height: 50px;font-size: 18px;border: 0;cursor: pointer;margin-bottom: 20px;}
+		#opaque-bg{position: absolute;top: 0;right: 0;left: 0;bottom: 0;background-color:rgba(0,0,0,0.5);}
+	</style>
+	<block name="style"></block>
+</head>
+<body>
+	<div class="max-div">
+		<!--背景-->
+		<div id="opaque-bg" class="pop">
+			<!--弹框-->
+			<block name="elastic-frame"></block>
+			<!--注册-->
+			<div class="pop-frame pop" id="reg">
+				<a href="javascript:;" class="close"></a>
+				<div class="pop-title">账号注册</div>
+				<div class="pop-frame-div">
+					<div class="pop-frame-left">
+						<form action="" class="form">
+							<div class="form-row">
+								<span class="form-row-name">用&ensp;户&ensp;名：</span>
+								<input class="form-row-input form-row-input-size" type="text">
+								<span class="form-row-state">*</span>
+							</div>
+							<div class="form-row">
+								<span class="form-row-name">昵&ensp;&ensp;&ensp;&ensp;称：</span>
+								<input class="form-row-input form-row-input-size" type="text">
+								<span class="form-row-state">*</span>
+							</div>
+							<div class="form-row">
+								<span class="form-row-name">密&ensp;&ensp;&ensp;&ensp;码：</span>
+								<input class="form-row-input form-row-input-size" type="password">
+								<span class="form-row-state">*</span>
+							</div>
+							<div class="form-row">
+								<span class="form-row-name">确认密码：</span>
+								<input class="form-row-input form-row-input-size" type="password">
+								<span class="form-row-state">*</span>
+							</div>
+							<div class="form-row">
+								<span class="form-row-name">Email：</span>
+								<input class="form-row-input form-row-input-size" type="text">
+								<span class="form-row-state">*</span>
+							</div>
+						</form>
+						<div class="form-row form-btn">
+							<button type="button" class="btn">提&ensp;&ensp;交</button>
+						</div>
+					</div>
+					<div class="pop-frame-right">
+						<div class="message">已有账号，<a href="javascript:;" class="a-underline go" data-action="login">现在登录</a></div>
+					</div>
+				</div>
+			</div>
+			<!--登录-->
+			<div class="pop-frame " id="login">
+				<a href="javascript:;" class="close"></a>
+				<div class="pop-title">账号登录</div>
+				<div class="pop-frame-div">
+					<div class="pop-frame-left">
+						<form action="" class="form">
+							<div class="form-row">
+								<span class="form-row-name">用&ensp;户&ensp;名：</span>
+								<input class="form-row-input form-row-input-size" type="text">
+								<span class="form-row-state"></span>
+							</div>
+							<div class="form-row">
+								<span class="form-row-name">密&ensp;&ensp;&ensp;&ensp;码：</span>
+								<input class="form-row-input form-row-input-size" type="password">
+								<span class="form-row-state"></span>
+							</div>
+							<div class="form-row">
+								<span class="form-row-name"></span>
+								<a href="javascript:;" class="a-underline go" data-action="retrieve">忘记密码？</a>
+							</div>
+						</form>
+						<div class="form-row form-btn">
+							<button type="button" class="btn">登&ensp;&ensp;录</button>
+						</div>
+					</div>
+					<div class="pop-frame-right">
+						<div class="message">没有账号，<a href="javascript:;" class="a-underline go" data-action="reg">马上注册</a></div>
+					</div>
+				</div>
+			</div>
+			<!--找回-->
+			<div class="pop-frame " id="retrieve">
+				<a href="javascript:;" class="close"></a>
+				<div class="pop-title">找回密码</div>
+				<div class="pop-frame-div">
+					<div class="pop-frame-left">
+						<form action="" class="form">
+							<div class="form-row">
+								<span class="form-row-name">用&ensp;户&ensp;名：</span>
+								<input class="form-row-input form-row-input-size" type="text">
+								<span class="form-row-state"></span>
+							</div>
+							<div class="form-row">
+								<span class="form-row-name">Email：</span>
+								<input class="form-row-input form-row-input-size" type="text">
+								<span class="form-row-state"></span>
+							</div>
+						</form>
+						<div class="form-row form-btn">
+							<button type="button" class="btn">提&ensp;&ensp;交</button>
+						</div>
+					</div>
+					<div class="pop-frame-right">
+						<div class="message">没有账号，<a href="javascript:;" class="a-underline go"  data-action="reg">马上注册</a><br><a href="javascript:;" class="go"  data-action="login" style="color: #00ff00;" class="a-underline">返回登录</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--头部-->
+		<div class="header">
+			<div class="half">
+				<div class="header-left">
+					<img src="/Public/img/clsg/logo.png"/><br>
+					<a href="">
+						<img src="/Public/img/clsg/gfwz.png"/>
+					</a><br>
+					<a href="">
+						<img src="/Public/img/clsg/wx.png"/>
+					</a>
+				</div>
+				<div class="header-right">
+					<img src="/Public/img/clsg/text.png"/>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<!--nav-->
+		<div class="nav">
+			<div class="nav-bg">
+				<block name="nav-top"></block>
+			</div>
+			<div class="nav-bottom">
+				<div class="half">
+					<div class="nav-bottom-left"><block name="position"></block></div>
+					<div class="nav-bottom-right">
+						<block name="reg-login"></block>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+		<!--body-->
+		<div class="body">
+			<div class="half">
+				<block name="body"></block>
+			</div>
+		</div>
+
+		<!--footer-->
+		<div class="footer">
+			<div>
+				<img src="/Public/img/clsg/textLogo.png"/><br>
+				<span>© Copyright 2014 - digisky. All Right Reserved.</span>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+<script src="/Public/js/jquery-1.11.1.min.js"></script>
+<script>
+	var pop = $(".pop");
+	$(".go").click(function () {
+		pop.show();
+		pop.find(".pop-frame").hide();
+		var action = $(this).data("action");
+		$("#"+action).slideDown(500);
+	});
+	
+	$(".close").click(function () {
+		$(this).parents(".pop").slideUp(200);
+	});
+</script>
+<block name="script"></block>
+</html>
